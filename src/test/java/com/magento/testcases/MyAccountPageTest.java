@@ -1,7 +1,10 @@
 package com.magento.testcases;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,7 +21,7 @@ SignInPage login;
 	
 	
 	@BeforeMethod
-	public void setup() {
+	public void setup() throws MalformedURLException {
 		initialization();
 		homepage=new HomePage();
 		login=homepage.signin();
@@ -42,6 +45,9 @@ SignInPage login;
 		System.out.println(ci);
 		Assert.assertTrue(ci.contains("abcd@yopmail.com"));
 	}
-	
+	@AfterMethod
+	public void teardown() {
+		driver.quit();
+	}
 	
 }

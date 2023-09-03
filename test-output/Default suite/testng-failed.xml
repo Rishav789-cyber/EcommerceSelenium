@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.magento.testcases.MyAccountPageTest">
+      <class name="com.magento.testcases.HomePageTest">
         <methods>
           <include name="setup"/>
-          <include name="validateContactInfo"/>
+          <include name="navigateToRegistrationPage"/>
         </methods>
-      </class> <!-- com.magento.testcases.MyAccountPageTest -->
+      </class> <!-- com.magento.testcases.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

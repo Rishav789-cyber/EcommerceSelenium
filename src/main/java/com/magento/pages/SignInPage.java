@@ -1,5 +1,7 @@
 package com.magento.pages;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -19,7 +21,8 @@ WebElement signinBtn;
 @FindBy(xpath="//span[normalize-space()='Sale']")
 WebElement sale;
 
-public SignInPage() {
+public SignInPage() throws MalformedURLException {
+	
 	PageFactory.initElements(driver, this);
 }
 public void setEmail(String un) {
@@ -28,7 +31,7 @@ public void setEmail(String un) {
 public void setPass(String passw) {
 	pass.sendKeys(passw);
 }
-public MyAccountPage clickSignInbtn() {
+public MyAccountPage clickSignInbtn() throws MalformedURLException {
 	signinBtn.click();
 	return new MyAccountPage();
 }

@@ -1,12 +1,16 @@
 package com.magento.pages;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.magento.base.TestBase;
 
 public class MyAccountPage extends TestBase {
+	
 @FindBy(xpath="//div[@class='panel header']//span[@class='logged-in'][normalize-space()='Welcome, abc def!']")
 WebElement navName;
 
@@ -15,7 +19,8 @@ WebElement contactInfo;
 
 
 
-public MyAccountPage() {
+public MyAccountPage() throws MalformedURLException {
+	
 	PageFactory.initElements(driver, this);
 }
 public String verifyUserName() {

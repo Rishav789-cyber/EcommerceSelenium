@@ -1,6 +1,10 @@
 package com.magento.testcases;
 
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,10 +13,11 @@ import com.magento.pages.HomePage;
 import com.magento.pages.RegistrationPage;
 
 public class HomePageTest extends TestBase {
+	
 HomePage homepage;
 RegistrationPage registrationpage;
 	@BeforeMethod
-	public void setup() {
+	public void setup() throws MalformedURLException {
 		initialization();
 		homepage=new HomePage();
 	}
@@ -22,8 +27,12 @@ RegistrationPage registrationpage;
 		Assert.assertEquals("Home Page",homepage.verifyTitle());
 	}
 	@Test(priority=2)
-	public void navigateToRegistrationPage() {
+	public void navigateToRegistrationPage() throws MalformedURLException {
 		registrationpage=homepage.registration();
+	}
+	@AfterMethod
+	public void teardown() {
+		driver.quit();
 	}
 	
 }

@@ -1,6 +1,9 @@
 package com.magento.pages;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,7 +19,8 @@ public class HomePage extends TestBase{
 	
 	
 	
-	public HomePage() {
+	public HomePage() throws MalformedURLException {
+		
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -24,11 +28,11 @@ public class HomePage extends TestBase{
 		String title=driver.getTitle();
 		return title;
 	}
-	public RegistrationPage registration() {
+	public RegistrationPage registration() throws MalformedURLException {
 		createAccount.click();
 		return new RegistrationPage();
 	}
-	public SignInPage signin() {
+	public SignInPage signin() throws MalformedURLException {
 		signin.click();
 		return new SignInPage();
 	}

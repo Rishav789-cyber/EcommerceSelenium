@@ -1,5 +1,7 @@
 package com.magento.pages;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -26,7 +28,8 @@ public class RegistrationPage extends TestBase {
 	@FindBy(xpath="//button[@title='Create an Account']")
 	WebElement createBtn;
 	
-	public RegistrationPage() {
+	public RegistrationPage() throws MalformedURLException {
+		
 		PageFactory.initElements(driver, this);
 	}
 	public void setFirstName(String fn) {
@@ -44,7 +47,7 @@ public class RegistrationPage extends TestBase {
 	public void setConfPass(String cp) {
 		confirmPass.sendKeys(cp);
 	}
-	public MyAccountPage createAccount() {
+	public MyAccountPage createAccount() throws MalformedURLException {
 	createBtn.click();
 	return new MyAccountPage();
 	}

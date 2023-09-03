@@ -1,12 +1,17 @@
 package com.magento.pages;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.magento.base.TestBase;
 
 public class MenPage extends TestBase {
+	
+
 @FindBy(xpath="//li[1]//div[1]//div[1]//div[4]//div[1]//div[1]//form[1]//button[1]//span[1]")
 WebElement addToCart;
 
@@ -31,7 +36,8 @@ WebElement cartIcon;
 @FindBy(id="top-cart-btn-checkout")
 WebElement checkout;
 
-public MenPage() {
+public MenPage() throws MalformedURLException {
+	
 	PageFactory.initElements(driver, this);
 }
 public void clickAddToCart() {
@@ -53,7 +59,7 @@ public void clickCart() {
 public void clickCartIcon() {
 	cartIcon.click();
 }
-public ShippingPage clickCheckout() { 
+public ShippingPage clickCheckout(){ 
 checkout.click();
 return new ShippingPage();
 }

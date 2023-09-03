@@ -1,6 +1,9 @@
 package com.magento.testcases;
 
+import java.net.MalformedURLException;
+
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,7 +18,7 @@ public class SalePageTest extends TestBase {
 	SalePage sales;
 	
 @BeforeMethod
-public void setup() {
+public void setup() throws MalformedURLException {
 	initialization();
 	homepage=new HomePage();
 	sign=homepage.signin();
@@ -31,7 +34,10 @@ public void verifyTees() {
 	Assert.assertEquals("Tees",t);
 	
 }
-
+@AfterMethod
+public void teardown() {
+	driver.quit();
+}
 
 
 

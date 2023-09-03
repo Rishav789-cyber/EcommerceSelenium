@@ -1,5 +1,7 @@
 package com.magento.pages;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,7 +20,7 @@ public String getTees() {
 	String t=tees.getText();
 	return t;
 }
-public MenPage clickTees() {
+public MenPage clickTees() throws MalformedURLException {
 	tees.click();
 	return new MenPage();
 }
